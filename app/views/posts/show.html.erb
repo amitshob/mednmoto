@@ -3,13 +3,13 @@
 <p><%= @post.description %></p>
 
 
-<% if @post.tags.any? %>
+
   <h4>Tags:</h4>
 
   <ul>
     <% @post.tags.each do |tag| %>
       <li>
-        <%= tag.description %> |
+        <%= tag.name %> |
         <%= link_to "Edit", edit_post_tag_path(@post, tag) %> |
         <%= link_to "Delete", post_tag_path(@post, tag),
                                  :data => {:confirm => "Are you sure?",
@@ -17,9 +17,7 @@
       </li>
     <% end %>
   </ul>
-<% else %>
-  <p>There are no tags yet!</p>
-<% end %>
+
 
 <p><%= link_to "Create New Tag", new_post_tag_path(@post) %></p>
 

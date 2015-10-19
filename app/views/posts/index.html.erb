@@ -7,9 +7,10 @@
 </ul>
 
 <hr>
-
+<p>Tags</p>
 <ul>
   <% Tag.all.order(name: :asc).each do |tag| %>
+   <li> <%= link_to tag.name, tag_path(tag)%> </li>
   <% end %>
 
 </ul>

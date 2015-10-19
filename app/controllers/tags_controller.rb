@@ -6,13 +6,26 @@ class TagsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @tag = @post.tags.new(tag_params)
-    binding.pry
     if @tag.save
-      redirect_to post_path(@tag.post)
+      redirect_to post_path(@post)
     else
       render :new
     end
+    binding.pry
   end
+
+  def update
+    @post = Post.find(params[:post_id])
+    @tag = @post.tags.new(tag_params)
+    if @tag.update(tag_params)
+      redirect_to post_path(@post)
+    else
+
+      render:new
+    end
+  end
+
+
 
 private
   def tag_params
