@@ -5,3 +5,13 @@
     <li><%= link_to post.title, post_path(post)%></li>
   <% end %>
 </ul>
+
+<hr>
+
+<ul>
+  <% Tag.all.order(name: :asc).each do |tag| %>
+  <% end %>
+
+</ul>
+
+<%= link_to "New Post", new_post_path %>

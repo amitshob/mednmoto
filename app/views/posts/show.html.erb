@@ -1,3 +1,33 @@
 <h1><%= @post.title %></h1>
 
+<p><%= @post.description %></p>
+
+
+<% if @post.tags.any? %>
+  <h4>Tags:</h4>
+
+  <ul>
+    <% @post.tags.each do |tag| %>
+      <li>
+        <%= tag.description %> |
+        <%= link_to "Edit", edit_post_tag_path(@post, tag) %> |
+        <%= link_to "Delete", post_tag_path(@post, tag),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no tags yet!</p>
+<% end %>
+
+<p><%= link_to "Create New Tag", new_post_tag_path(@post) %></p>
+
+
+
+
 <p><%= link_to "Home", posts_path %></p>
+<p><%= link_to "Edit", edit_post_path(@post) %></p>
+<p><%= link_to "Delete", post_path(@post),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
