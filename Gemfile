@@ -11,6 +11,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'devise'
 gem 'textacular', '~> 3.0'
 gem 'ancestry'
+gem "paperclip", "~> 4.3"
 
 
 group :development do

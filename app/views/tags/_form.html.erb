@@ -1,7 +1,9 @@
 <%= render('layouts/errors', :object => @tag) %>
 
-<%= form_for [@post, @tag] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <p><%= f.submit %></p>
-<% end %>
+<div class= "container">
+  <%= form_for [@post, @tag] do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    <p><%= f.submit %></p>
+  <% end %>
+<div>

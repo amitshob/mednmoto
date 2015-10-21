@@ -1,18 +1,24 @@
 
-
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post)%></li>
-  <% end %>
-</ul>
-
-<hr>
-<p>Tags</p>
-<ul>
-  <% Tag.all.order(name: :asc).each do |tag| %>
-   <li> <%= link_to tag.name, tag_path(tag)%> </li>
-  <% end %>
-
-</ul>
-
-<%= link_to "New Post", new_post_path %>
+ <div class="container">
+    <div class="column-center">
+      <%= link_to "New Post", new_post_path %><hr><hr>
+        <ul>
+          <% @posts.each do |post| %>
+            <li><%= link_to post.title, post_path(post)%></li><hr>
+          <% end %>
+        </ul>
+    </div>
+    <div class= "column-left">
+      <div class ="col-md-2">
+        <div id="side_well" class="well">
+          <hr>
+          <p align="center">Tags(a-z)</p>
+          <ul id="index-tag-list">
+            <% Tag.all.order(name: :asc).each do |tag| %>
+             <li> <%= link_to tag.name, tag_path(tag)%> </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div
+  </div>

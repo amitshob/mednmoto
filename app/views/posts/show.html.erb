@@ -1,31 +1,26 @@
-<h1><%= @post.title %></h1>
+<div class=cotainer>
+  <div class = "column-center">
+    <h3><%= @post.title %></h3><hr>
+    <p><%= @post.description %></p>
+  </div>
+  <div class ="column-left">
+    <div class ="col-md-4">
+      <h5>Tags:</h5>
 
-<p><%= @post.description %></p>
-
-
-
-  <h4>Tags:</h4>
-
-  <ul>
-    <% @post.tags.each do |tag| %>
-      <li>
-        <%= tag.name %> |
-        <%= link_to "Edit", edit_post_tag_path(@post, tag) %> |
-        <%= link_to "Delete", post_tag_path(@post, tag),
-                                 :data => {:confirm => "Are you sure?",
-                                                :method => "delete"} %>
-      </li>
-    <% end %>
-  </ul>
-
-
-<p><%= link_to "Create New Tag", new_post_tag_path(@post) %></p>
-
-
-
-
-<p><%= link_to "Home", posts_path %></p>
-<p><%= link_to "Edit", edit_post_path(@post) %></p>
-<p><%= link_to "Delete", post_path(@post),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
+      <ul>
+        <% @post.tags.each_with_index do |tag, i| %>
+          <li>
+            <%= tag.name %>
+          </li>
+        <% end %>
+      </ul>
+      <p><%= link_to "Create New Tag", new_post_tag_path(@post) %></p>
+    </div>
+  </div>
+  <div class = "column-right">
+    <p align="center"><%= link_to "Edit Post", edit_post_path(@post) %></p>
+    <p align="center"><%= link_to "Delete Post", post_path(@post),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"} %></p>
+  </div>
+</div>
