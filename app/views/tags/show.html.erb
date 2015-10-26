@@ -1,8 +1,8 @@
 
-<div class=cotainer>
+<div class=container>
   <div class = "column-center">
 
-    <h4> Posts containing <%= @tag.name %> /h4><hr>
+    <h4> Posts related to <%= @tag.name %> </h4><hr>
     <ul>
       <% @tag.posts.each do |post| %>
         <li>

@@ -8,7 +8,7 @@
       <h5>Tags:</h5>
 
       <ul>
-        <% @post.tags.each_with_index do |tag, i| %>
+        <% @post.tags.each do |tag| %>
           <li>
             <%= tag.name %>
           </li>
