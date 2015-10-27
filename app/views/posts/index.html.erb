@@ -1,8 +1,8 @@
 
  <div class="container">
     <div class="column-center">
-      <%= link_to "New Post", new_post_path %><hr><hr>
-        <ul>
+      <%= link_to "New Post", new_post_path, id: "new_link", remote: true %><hr><hr>
+        <ul id: "ordered_posts">
           <% @posts.each do |post| %>
             <li><%= link_to post.title, post_path(post)%></li><hr>
           <% end %>
