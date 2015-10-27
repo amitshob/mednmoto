@@ -18,8 +18,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       respond_to do |format|
+        # flash[:notice] = "Post sucessfully added!"
         format.html {redirect_to  posts_path}
         format.js
+        # redirect_to  posts_path
       end
     else
       render :new

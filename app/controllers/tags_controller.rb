@@ -10,7 +10,11 @@ class TagsController < ApplicationController
     # if @tag.save
     if @tag.valid?
      @post.tags << @tag
-      redirect_to post_path(@post)
+     respond_to do |format|
+       flash[:notice] = "Tag sucessfully created"
+       format.html {redirect_to post_path(@post)}
+       format.js
+     end
     else
       render :new
     end
@@ -26,7 +30,7 @@ class TagsController < ApplicationController
     if @tag.update(tag_params)
       redirect_to post_path(@post)
     else
-      render:new
+        render:new
     end
   end
 

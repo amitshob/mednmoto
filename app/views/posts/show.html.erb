@@ -7,14 +7,14 @@
     <div class ="col-md-4">
       <h5>Tags:</h5>
 
-      <ul>
+      <ul id= "ordered_tags">
         <% @post.tags.each do |tag| %>
           <li>
-            <%= tag.name %>
+            <p><%= tag.name %><span id="<%= tag.id%>"><p>
           </li>
         <% end %>
       </ul>
-      <p><%= link_to "Create New Tag", new_post_tag_path(@post) %></p>
+      <p><%= link_to "Create New Tag", new_post_tag_path(@post), id: "new_tag_link", remote: true %></p>
     </div>
   </div>
   <div class = "column-right">

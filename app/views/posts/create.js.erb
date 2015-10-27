@@ -1,2 +1,5 @@
+$('.notices').text("");
 $('#new_post').remove();
-$('#new_link').show();
+$('#new_post_link').show();
+$('#ordered_posts').append('<li><%= link_to @post.title, post_path(@post)%></li><hr>');
+$('.notices').text("posted");
